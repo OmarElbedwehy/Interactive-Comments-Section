@@ -1,0 +1,521 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    background-color: hsl(228, 33%, 97%);
+}
+
+#pre_loader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff url(./images/pre.gif) no-repeat center center;
+    z-index: 999;
+    transition: 1s;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .container{
+    width: 55%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+main .container .msg{
+    background-color: #fff;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+main .container .msg .counter{
+    background-color: hsl(228, 33%, 97%);
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    height: 125px;
+}
+
+main .container .msg .counter h3{
+    margin: 20px 0;
+    color: hsl(238, 40%, 52%);
+}
+
+main .container .msg .counter .plus,
+main .container .msg .counter .minus{
+    color: rgb(197, 198, 239);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+main .container .msg .counter .plus:hover,
+main .container .msg .counter .minus:hover{
+    color: hsl(238, 40%, 52%);
+}
+
+main .container .msg .text_content{
+    width: 90%;
+}
+
+main .container .msg .text_content .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .container .msg .text_content .top .user{
+    display: flex;
+    align-items: center;
+}
+
+main .container .msg .text_content .top .user img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+main .container .msg .text_content .top .user h3{
+    font-size: 17px;
+}
+
+main .container .msg .text_content .top .user .time{
+    margin-left: 15px;
+    color: hsl(211, 10%, 45%);
+}
+
+main .container .msg .text_content .top .user_options{
+    display: flex;
+    align-items: center;
+}
+
+main .container .msg .text_content .top .user_options .replay{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .container .msg .text_content .top .user_options .replay:hover,
+main .container .msg .text_content .top .user_options .delete:hover,
+main .container .msg .text_content .top .user_options .edit:hover{
+    opacity: 0.5;
+}
+
+main .container .msg .text_content .top .user_options .replay p{
+    color: hsl(238, 40%, 52%);
+    margin-left: 5px;
+}
+
+main .container .msg .text_content .top .user_options .delete{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .container .msg .text_content .top .user_options .delete p{
+    margin-left: 5px;
+    color: hsl(358, 79%, 66%);
+}
+
+main .container .msg .text_content .top .user_options .edit{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .container .msg .text_content .top .user_options .edit p{
+    margin-left: 5px;
+    color: hsl(238, 40%, 52%);
+}
+
+main .container .msg .text_content .text{
+    margin-top: 20px;
+}
+
+main .container .msg .text_content .text p{
+    color: hsl(211, 10%, 45%);
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+main .container .msg .text_content .text p .replyingTo{
+    color: hsl(238, 40%, 52%);
+    font-weight: bold;
+}
+
+main .container .reply_msgs{
+    width: 88%;
+    position: relative;
+    right: -90px;
+}
+
+main .container .reply_msgs::before{
+    content: '';
+    position: absolute;
+    left: -45px;
+    height: 100%;
+    width: 2px;
+    background-color: hsl(223, 19%, 93%);
+}
+
+main .container .comment{
+    background-color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+main .container .comment img{
+    width: 40px;
+    height: 40px;
+}
+
+main .container .comment input{
+    width: 80%;
+    margin-left: 15px;
+    padding: 40px 20px;
+    padding-top: 0;
+    margin-right: 15px;
+    border: 1px solid hsl(223, 19%, 93%);
+    border-radius: 6px;
+    outline: none;
+    height: 90px;
+    position: relative;
+    font-size: 17px;
+}
+
+main .container .comment input::placeholder{
+    font-size: 14px;
+    color: hsl(211, 10%, 45%);
+}
+
+main .container .comment .send{
+    padding: 10px 25px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: hsl(238, 40%, 52%);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .container .comment .send:hover{
+    background-color: hsl(238, 41%, 61%);
+}
+
+main .container .reply_msg{
+    background-color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+main .container .reply_msg img{
+    width: 40px;
+    height: 40px;
+}
+
+main .container .reply_msg input{
+    width: 80%;
+    margin-left: 15px;
+    padding: 40px 20px;
+    padding-top: 0;
+    margin-right: 15px;
+    border: 1px solid hsl(223, 19%, 93%);
+    border-radius: 6px;
+    outline: none;
+    height: 90px;
+    position: relative;
+    font-size: 17px;
+}
+
+main .container .reply_msg input::placeholder{
+    font-size: 14px;
+    color: hsl(211, 10%, 45%);
+}
+
+main .container .reply_msg .send{
+    padding: 10px 25px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: hsl(238, 40%, 52%);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main .container .reply_msg .send:hover{
+    background-color: hsl(238, 41%, 61%);
+}
+
+.update{
+    padding: 10px 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: hsl(238, 40%, 52%);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    float: right;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.update:hover{
+    background-color: hsl(238, 41%, 61%);
+}
+
+input{
+    transition: 0.3s;
+}
+
+input:focus{
+    border: 1px solid hsl(238, 40%, 52%) !important;
+}
+
+.you{
+    background-color: hsl(238, 40%, 52%);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 15px;
+    margin-left: 8px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+}
+
+.deleted{
+    transition: 1s;
+    transform: translateX(-100vw);
+}
+
+.msg textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid hsl(223, 19%, 93%);
+    resize: none;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.3;
+    outline: none;
+    border-radius: 6px;
+}
+
+textarea:focus{
+    border: 1px solid hsl(238, 40%, 52%) !important;
+}
+
+#delete_modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: hsl(211deg 4% 15% / 57%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+#delete_modal.active{
+    z-index: 99;
+    opacity: 1;
+}
+
+#delete_modal .content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    width: 340px;
+    border-radius: 6px;
+}
+
+#delete_modal .content p{
+    line-height: 1.3;
+    color: hsl(211, 10%, 45%);
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+#delete_modal .content .confirm{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#delete_modal .content .confirm button{
+    width: 47%;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#delete_modal .content .confirm button:hover{
+    opacity: 0.8;
+}
+
+#delete_modal .content .confirm #cancel{
+    background-color: hsl(211, 10%, 45%);
+}
+
+#delete_modal .content .confirm #ok{
+    background-color: hsl(358, 79%, 66%);
+}
+
+footer{
+    position: fixed;
+    z-index: 100;
+    right: 10px;
+    bottom: 10px;
+    padding: 20px;
+    background-color: #cfcaca;
+    border-radius: 10px;
+}
+
+footer a{
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+
+footer a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    height: 3px;
+    width: 0%;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+footer a:hover::after{
+    width: 100%;
+}
+
+.unactive{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media (max-width: 980px){
+    main .container{
+        width: 78%;
+    }
+}
+
+@media (max-width: 760px){
+    main .container{
+        width: 90%;
+    }
+    main .container .msg{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        position: relative;
+    }
+    main .container .msg .counter{
+        background-color: hsl(228, 33%, 97%);
+        width: 115px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 20px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    main .container .msg .text_content .top .user_options{
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+    }
+    main .container .reply_msgs::before{
+        left: -13px;
+    }
+    main .container .reply_msgs{
+        width: 98%;
+        position: relative;
+        right: -15px;
+    }
+    main .container .msg .text_content .top{
+        width: 110%;
+    }
+    main .container .comment{
+        flex-direction: column-reverse;
+    }
+    main .container .comment img{
+        margin-top: 20px;
+    }
+    main .container .comment .send,
+    main .container .reply_msg .send{
+        position: absolute;
+        right: 40px;
+    }
+    main .container .comment input,
+    main .container .reply_msg input{
+        width: 100%;
+        margin-left: 0;
+    }
+    main .container .reply_msg{
+        flex-direction: column-reverse;
+    }
+    main .container .reply_msg img{
+        margin-top: 20px;
+    }
+    main .container .msg .text_content .text{
+        width: 110%;
+    }
+    main .container .reply_msgs .reply_msg .send{
+        right: 20px;
+    }
+}
